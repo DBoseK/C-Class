@@ -8,7 +8,7 @@ namespace eOT.Util
     {
         public static readonly string MailServer = ConfigurationManager.AppSettings["smtpserver"];
         public static readonly string mailbcc = ConfigurationManager.AppSettings["emailBcc"];
-        public static readonly string SysMailAddress = "Sys.Admin@emerson.com";
+        public static readonly string SysMailAddress = "Sys.Admin@163.com";
 
         public static bool SendMailSmtp(string strFrom, string strTo, string strCc, string strSub, string strCon, Dictionary<string, byte[]> fileByteDict = null, List<string> filePathList = null)
         {
@@ -58,9 +58,9 @@ namespace eOT.Util
                 foreach (string filename in fileByteDict.Keys)
                 {
                     System.IO.Stream stream = new System.IO.MemoryStream(fileByteDict[filename]);
-                    //附件对象 
+                    //闄勪欢瀵硅薄 
                     System.Net.Mail.Attachment data = new System.Net.Mail.Attachment(stream, filename);
-                    //加入邮件附件 
+                    //鍔犲叆閭欢闄勪欢 
                     msg.Attachments.Add(data);
                 }
             }
@@ -69,9 +69,9 @@ namespace eOT.Util
             {
                 foreach (string filepath in filePathList)
                 {
-                    //附件对象 
+                    //闄勪欢瀵硅薄 
                     System.Net.Mail.Attachment data = new System.Net.Mail.Attachment(filepath, System.Net.Mime.MediaTypeNames.Application.Octet);
-                    //加入邮件附件 
+                    //鍔犲叆閭欢闄勪欢 
                     msg.Attachments.Add(data);
                 }
             }
